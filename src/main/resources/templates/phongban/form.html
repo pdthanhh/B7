@@ -1,0 +1,21 @@
+<!-- src/main/resources/templates/phongban/form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Phòng Ban</title>
+</head>
+<body>
+<h2>Thêm/Sửa Phòng Ban</h2>
+<form th:action="@{/phongban/save}" th:object="${phongban}" method="post">
+    <label for="maPhong">Mã Phòng:</label>
+    <input type="text" id="maPhong" th:field="*{maPhong}" required><br><br>
+
+    <label for="tenPhong">Tên Phòng:</label>
+    <input type="text" id="tenPhong" th:field="*{tenPhong}" required><br><br>
+
+    <button type="submit">Lưu</button>
+</form>
+<a href="/phongban">Quay lại danh sách Phòng Ban</a>
+</body>
+</html>

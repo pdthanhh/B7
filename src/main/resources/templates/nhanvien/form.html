@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Nhân Viên</title>
+</head>
+<body>
+<h2>Thêm/Sửa Nhân Viên</h2>
+<form th:action="@{/nhanvien/save}" th:object="${nhanvien}" method="post">
+    <label for="maNV">Mã Nhân Viên:</label>
+    <input type="text" id="maNV" th:field="*{maNV}" required><br><br>
+
+    <label for="tenNV">Tên Nhân Viên:</label>
+    <input type="text" id="tenNV" th:field="*{tenNV}" required><br><br>
+
+    <label for="phai">Phái:</label>
+    <input type="text" id="phai" th:field="*{phai}" required><br><br>
+
+    <label for="noiSinh">Nơi Sinh:</label>
+    <input type="text" id="noiSinh" th:field="*{noiSinh}" required><br><br>
+
+    <label for="luong">Lương:</label>
+    <input type="number" id="luong" th:field="*{luong}" required><br><br>
+
+    <label for="phongBan">Phòng Ban:</label>
+    <select id="phongBan" th:field="*{phongBan.maPhong}">
+        <option th:each="phongBan : ${danhSachPhongBan}" th:value="${phongBan.maPhong}" th:text="${phongBan.tenPhong}"></option>
+    </select><br><br>
+
+    <button type="submit">Lưu</button>
+</form>
+</body>
+</html>

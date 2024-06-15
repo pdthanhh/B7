@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Phòng ban</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Danh sách Phòng ban</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Mã Phòng</th>
+        <th>Tên Phòng</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="phongBan : ${danhSachPhongBan}">
+        <td th:text="${phongBan.maPhong}">Mã Phòng</td>
+        <td th:text="${phongBan.tenPhong}">Tên Phòng</td>
+        <td>
+            <a th:href="@{/phongban/edit/{maPhong}(maPhong=${phongBan.maPhong})}">Sửa</a> |
+            <a th:href="@{/phongban/delete/{maPhong}(maPhong=${phongBan.maPhong})}"
+               onclick="return confirm('Bạn có chắc chắn muốn xóa phòng ban này?');">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/phongban/add">Thêm Phòng ban</a>
+</body>
+</html>
